@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кашкар Кафе | Kashkar Cafe - Brighton Beach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #1a5f5f;
+            --teal-dark: #0d3d3d;
+            --gold: #d4a84b;
+            --coral: #c75b39;
+            --cream: #faf6f0;
+            --white: #ffffff;
+            --charcoal: #2a2a2a;
+            --sand: #e8dcc8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 95, 95, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        .logo {
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .logo-ru {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            display: block;
+            font-weight: 400;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 5% 4rem;
+            background: 
+                linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, var(--teal-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a84b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Comfortaa', cursive;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        
+        .hero .ru-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        .hero .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--teal-dark);
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+        }
+        
+        .section-title {
+            font-family: 'Comfortaa', cursive;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--teal);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--white);
+            position: relative;
+        }
+        
+        .about::before {
+            content: "۝";
+            position: absolute;
+            top: 2rem;
+            left: 5%;
+            font-size: 8rem;
+            color: var(--sand);
+            opacity: 0.5;
+            font-family: serif;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .highlight {
+            background: var(--sand);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 180px;
+        }
+        
+        .highlight-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-text {
+            font-weight: 500;
+            color: var(--teal-dark);
+        }
+        
+        /* Menu Section */
+        .menu {
+            background: var(--teal-dark);
+            color: var(--white);
+        }
+        
+        .menu .section-title {
+            color: var(--white);
+        }
+        
+        .menu .section-subtitle {
+            color: var(--gold);
+        }
+        
+        .menu-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 168, 75, 0.2);
+        }
+        
+        .menu-category h3 {
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item-name {
+            font-weight: 500;
+        }
+        
+        .menu-item-price {
+            color: var(--coral);
+            font-weight: 600;
+            font-family: 'Comfortaa', cursive;
+        }
+        
+        .menu-item-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.25rem;
+        }
+        
+        .menu-item.特色 {
+            grid-column: 1 / -1;
+            background: rgba(212, 168, 75, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .menu-item.特色 .menu-item-name {
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+        
+        /* Location Section */
+        .location {
+            background: var(--cream);
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .location-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--teal);
+        }
+        
+        .location-card h3 {
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--teal);
+        }
+        
+        .location-card p {
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--teal);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact .section-title,
+        .contact .section-subtitle {
+            color: var(--white);
+        }
+        
+        .contact .section-subtitle {
+            color: var(--gold);
+        }
+        
+        .contact-card {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .phone {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin: 2rem 0;
+            font-family: 'Comfortaa', cursive;
+        }
+        
+        .phone:hover {
+            color: var(--gold);
+        }
+        
+        .address {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .bilingual {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--teal-dark);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero .ru-title {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 3rem 5%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .highlights {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about::before {
+                font-size: 5rem;
+                top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            Kashkar Cafe
+            <span class="logo-ru">Кашкар Кафе</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">The Legend, OG</span>
+            <h1>Kashkar Cafe</h1>
+            <p class="ru-title">Кашкар Кафе</p>
+            <p class="tagline">Authentic Uyghur Cuisine in the Heart of Brighton Beach</p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">Traditional flavors from the Silk Road</p>
+            
+            <p>For over two decades, Kashkar Cafe has been serving the finest Uyghur cuisine in Brooklyn. Our recipes come from family traditions passed down through generations, bringing the authentic flavors of Xinjiang to Brighton Beach.</p>
+            <p>Every dish is prepared with care—hand-pulled laghman noodles, slow-cooked stews, and freshly baked breads from our tandoor oven. We use only the freshest ingredients and traditional spices sourced directly from Central Asia.</p>
+            
+            <div class="highlights">
+                <div class="highlight">
+                    <div class="highlight-icon">🍜</div>
+                    <div class="highlight-text">Hand-Pulled Noodles</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon">🥙</div>
+                    <div class="highlight-text">Tandoor Breads</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon">🍖</div>
+                    <div class="highlight-text">Central Asian BBQ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2 class="section-title">Меню</h2>
+        <p class="section-subtitle">Menu</p>
+        
+        <p class="menu-intro">All dishes are prepared fresh to order. Please inform your server of any dietary restrictions.</p>
+        
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h3>🥘 main dishes / Основные блюда</h3>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Lagman (Laghman)</div>
+                        <div class="menu-item-desc">Hand-pulled noodles with vegetables & lamb</div>
+                    </div>
+                    <div class="menu-item-price">$18</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Uygur Polo (Plov)</div>
+                        <div class="menu-item-desc">Fragrant rice with lamb, carrots & spices</div>
+                    </div>
+                    <div class="menu-item-price">$17</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Korma</div>
+                        <div class="menu-item-desc">Tender lamb in rich tomato-based sauce</div>
+                    </div>
+                    <div class="menu-item-price">$19</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Manti</div>
+                        <div class="menu-item-desc">Steamed dumplings with lamb & onions</div>
+                    </div>
+                    <div class="menu-item-price">$15</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Borsok</div>
+                        <div class="menu-item-desc">Fried dough strips, garlic sauce</div>
+                    </div>
+                    <div class="menu-item-price">$12</div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>🥙 Breads / Хлеб</h3>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Nan (Naan)</div>
+                        <div class="menu-item-desc">Traditional tandoor-baked bread</div>
+                    </div>
+                    <div class="menu-item-price">$4</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Gosh Nan</div>
+                        <div class="menu-item-desc">Bread with lamb & onion filling</div>
+                    </div>
+                    <div class="menu-item-price">$8</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Sumal</div>
+                        <div class="menu-item-desc">Layered flatbread with sesame</div>
+                    </div>
+                    <div class="menu-item-price">$5</div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>🥗 Cold Dishes / Салаты</h3>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Salad</div>
+                        <div class="menu-item-desc">Fresh tomatoes, cucumbers, onions</div>
+                    </div>
+                    <div class="menu-item-price">$8</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Tohma</div>
+                        <div class="menu-item-desc">Yogurt with garlic & cucumber</div>
+                    </div>
+                    <div class="menu-item-price">$7</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Assorted Pickles</div>
+                        <div class="menu-item-desc">House-made pickled vegetables</div>
+                    </div>
+                    <div class="menu-item-price">$6</div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>🍵 Drinks / Напитки</h3>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Green Tea</div>
+                        <div class="menu-item-desc">Traditional Uyghur green tea</div>
+                    </div>
+                    <div class="menu-item-price">$3</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Ayran</div>
+                        <div class="menu-item-desc">Traditional yogurt drink</div>
+                    </div>
+                    <div class="menu-item-price">$4</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Kompot</div>
+                        <div class="menu-item-desc">Hot fruit compote</div>
+                    </div>
+                    <div class="menu-item-price">$4</div>
+                </div>
+            </div>
+            
+            <div class="menu-item 特色">
+                <div class="menu-item-name">⭐ Chef's Special: Kashkar Kombcha</div>
+                <div class="menu-item-desc">Signature lamb stew with hand-pulled noodles - our house specialty</div>
+                <div class="menu-item-price" style="margin-top: 0.5rem;">$22</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location" id="location">
+        <h2 class="section-title">Visit Us</h2>
+        <p class="section-subtitle">Brighton Beach, Brooklyn</p>
+        
+        <div class="location-grid">
+            <div class="location-card">
+                <h3>📍 Address</h3>
+                <p>1141 Brighton Beach Avenue<br>Brooklyn, NY 11235</p>
+            </div>
+            <div class="location-card">
+                <h3>🕐 Hours</h3>
+                <p>Daily: 11am - 10pm<br>Closed: Never<br>(Open 365 days)</p>
+            </div>
+            <div class="location-card">
+                <h3>🚗 Parking</h3>
+                <p>Street parking available<br>One block from the beach</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Свяжитесь с нами</h2>
+        <p class="section-subtitle">Contact Us</p>
+        
+        <div class="contact-card">
+            <a href="tel:+17186489100" class="phone">(718) 648-9100</a>
+            <p class="address">1141 Brighton Beach Avenue<br>Brooklyn, NY 11235</p>
+            <p class="bilingual">
+                English & Russian spoken<br>
+                Принимаем заказы навынос
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Kashkar Cafe / Кашкар Кафе. All rights reserved.</p>
+    </footer>
+</body>
+</html>
